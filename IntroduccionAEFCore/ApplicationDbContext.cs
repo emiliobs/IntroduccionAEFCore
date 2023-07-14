@@ -11,5 +11,14 @@ namespace IntroduccionAEFCore
         }
 
         public DbSet<Genero> Generos => Set<Genero>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Genero>().HasKey(g => g.Id);
+            modelBuilder.Entity<Genero>().Property(g => g.Nombre).HasMaxLength(150);
+
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
