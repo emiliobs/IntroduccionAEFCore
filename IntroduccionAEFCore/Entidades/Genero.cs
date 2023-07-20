@@ -6,5 +6,7 @@
 
         //[StringLength(maximumLength:150)]
         public String Nombre { get; set; } = null!;
+
+        public HashSet<Pelicula> Peliculas { get; set; } = new HashSet<Pelicula>();
     }
 }

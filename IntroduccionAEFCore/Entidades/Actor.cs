@@ -9,5 +9,9 @@
         public decimal Fortuna { get; set; }
 
         public DateTime FechaNacimiento { get; set; }
+
+        public List<PeliculaActor> PeliculasActores { get; set; } = new List<PeliculaActor>();
+
+
     }
 }
