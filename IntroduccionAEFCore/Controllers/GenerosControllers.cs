@@ -1,4 +1,5 @@
-﻿using IntroduccionAEFCore.Entidades;
+﻿using IntroduccionAEFCore.DTOs;
+using IntroduccionAEFCore.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IntroduccionAEFCore.Controllers
@@ -15,8 +16,12 @@ namespace IntroduccionAEFCore.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Genero genero)
+        public async Task<IActionResult> Post(GEneroCreacionDTO generoCreacion)
         {
+            var genero = new Genero()
+            {
+                Nombre = generoCreacion.Nombre,
+            };
 
             _context.Add(genero);
             await _context.SaveChangesAsync();
