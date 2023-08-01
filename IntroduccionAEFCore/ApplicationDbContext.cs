@@ -1,5 +1,6 @@
 ﻿using IntroduccionAEFCore.Entidades;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace IntroduccionAEFCore
 {
@@ -24,6 +25,7 @@ namespace IntroduccionAEFCore
         {
 
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
         //protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
