@@ -33,5 +33,15 @@ namespace IntroduccionAEFCore.Controllers
 
             return Ok(genero);
         }
+
+        [HttpPost("varios")]
+        public async Task<IActionResult> Post(GEneroCreacionDTO[] generosCreacionDTOs)
+        {
+            var generos = _mapper.Map<Genero[]>(generosCreacionDTOs);
+            _context.AddRange(generos);
+            await _context.SaveChangesAsync();
+
+            return Ok(generos);
+        }
     }
 }
